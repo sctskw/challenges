@@ -1,7 +1,5 @@
 #!/usr/bin/python
 
-import sys
-
 for line in range(input()):
     cycles = input()
     height = 1

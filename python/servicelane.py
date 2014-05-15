@@ -1,22 +1,26 @@
 #!/usr/bin/python
 
+"""
+    ServiceLane Challenge
+
+    https://www.hackerrank.com/challenges/service-lane
+
+"""
+
 import sys
 
-lines = sys.stdin.readlines()
-
-first = lines[0]
-widths = lines[1]
-tests = lines[2:]
-
-def strlit(line):
+def intify(line):
+    """convert line to list of ints"""
     return map(int, line.strip().split(' '))
 
-length, t = strlit(first)
-widths = strlit(widths)
+def run():
+    """start tests"""
+    lines = sys.stdin.readlines()
+    widths = intify(lines[1])
 
-for test in tests:
-    i,j = strlit(test)
-    segs = widths[i:j+1]
-    print min(segs)
+    for test in lines[2:]:
+        i, j = intify(test)
+        print min(widths[i:j+1])
 
-
+if __name__ == "__main__":
+    run()
