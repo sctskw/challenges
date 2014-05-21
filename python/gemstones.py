@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 """
     Gem-Stones Challenge
     https://www.hackerrank.com/challenges/gem-stones
