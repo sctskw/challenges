@@ -12,20 +12,21 @@ def clean(value):
     """clean up string value"""
     return value.strip().lower().split(' ')
 
-def do_count(have, cost):
-    """how many can be purchased initially"""
-    return math.floor(int(have)/int(cost))
-
-def do_total(initial, factor):
+def do_total(wrappers, rebate, remaining):
     """handle total amount of chocolates"""
-    total = int(initial)
-    remainder = (int(initial)/int(factor))
+    total = 0
+    
+    if wrappers >= rebate:
+        total += wrappers
+        total += do_total(wrappers//rebate, rebate, remaining+wrappers%rebate)
+    elif wrappers > 0 and wrappers < rebate:
+        total += wrappers
+        total += do_total(0, rebate, wrappers+remaining)
+    elif remaining >= rebate:
+        total += do_total(remaining//rebate, rebate, remaining%rebate)
+    
 
-    while remainder >= 1:
-        total += remainder
-        remainder = (remainder/int(factor))
-
-    return int(math.floor(total))
+    return total
 
 def run():
     """initialize challenge"""
@@ -33,8 +34,8 @@ def run():
     lines = sys.stdin.readlines()[1:]
 
     for line in map(clean, lines):
-        money, cost, rebate = line
-        print do_total(do_count(money, cost), rebate)
+        money, cost, wrapper_rebate = line
+        print int(do_total(int(money)//int(cost), int(wrapper_rebate), 0))
 
 if __name__ == "__main__":
     run()
