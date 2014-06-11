@@ -15,16 +15,11 @@ def clean(value):
 def do_total(wrappers, rebate, remaining):
     """handle total amount of chocolates"""
     total = 0
-    
-    if wrappers >= rebate:
+
+    if wrappers > 0:
         total += wrappers
-        total += do_total(wrappers//rebate, rebate, remaining+wrappers%rebate)
-    elif wrappers > 0 and wrappers < rebate:
-        total += wrappers
-        total += do_total(0, rebate, wrappers+remaining)
-    elif remaining >= rebate:
-        total += do_total(remaining//rebate, rebate, remaining%rebate)
-    
+        wrappers += remaining
+        total += do_total(wrappers//rebate, rebate, wrappers%rebate)
 
     return total
 
