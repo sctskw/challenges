@@ -40,3 +40,24 @@ describe('Reverse a String iteratively and recursively', function() {
   })
 
 })
+
+
+describe('Determine if a string is a palindrome', function() {
+
+  var palindromes = require('./is_palindrome');
+  var given = 'racecar';
+  var expect = true;
+
+  it(format('Given: [%s], Expect: %s', given, expect), function() {
+    palindromes.check(given).should.equal(expect);
+  })
+
+  var given2 = 'racer';
+  var expect2 = false;
+
+  it(format('Given: [%s], Expect: %s', given2, expect2), function() {
+    palindromes.check(given2).should.equal(expect2);
+  })
+
+
+})
