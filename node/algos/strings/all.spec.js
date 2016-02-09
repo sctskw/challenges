@@ -59,5 +59,25 @@ describe('Determine if a string is a palindrome', function() {
     palindromes.check(given2).should.equal(expect2);
   })
 
-
 })
+
+
+describe('Find all permutations of a String', function() {
+
+  var permutations  = require('./permutations');
+
+  var given = 'abc';
+  var expect = [
+    'abc',
+    'acb',
+    'bac',
+    'bca',
+    'cab',
+    'cba'
+  ];
+
+  it(format('Given: [%s], Expect: %s', given, expect), function() {
+    permutations.solve(given).should.deepEqual(expect);
+  })
+
+});
