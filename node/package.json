@@ -4,7 +4,8 @@
   "description": "fun javascript challenges",
   "main": "index.js",
   "scripts": {
-    "test": "mocha **/*.spec.js"
+    "test": "mocha **/*.spec.js",
+    "test-debug": "mocha debug **/*.spec.js"
   },
   "author": "Scott Skow",
   "license": "ISC",
