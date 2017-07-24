@@ -110,11 +110,21 @@ function swap(A, p1, p2) {
   A[p1] = val2;
   A[p2] = val1;
 
+  if(process.env.DEBUG) {
+    console.log(`SWAP => [${A[p2]}, ${A[p1]}]`);
+  }
+
+
   return A[p1] === A[p2];
 }
 
 
+//Hoare Perf: 7 Swaps
+//Lomuto Perf: ? Swaps
 var test1 = [10, 12, 1, 3, 7, 13, 9];
+
+//Hoare Perf: ? Swaps
+//Lomuto Pef: ? Swaps
 var test2 = [4, 6, 1, 2, 10, 1, 3, 8, 4, 9];
 
 
